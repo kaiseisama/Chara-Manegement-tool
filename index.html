@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>キャラ管理ツール</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif; /* A nice default sans-serif font */
+    }
+    /* Custom scrollbar for better aesthetics with dark theme */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1e293b; /* slate-800 */
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #475569; /* slate-600 */
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #64748b; /* slate-500 */
+    }
+  </style>
+  <!-- Removed UMD React and ReactDOM scripts -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased">
+  <!--
+    [TROUBLESHOOTING]
+    If you are seeing 'allow-modals' errors and window.confirm() is not working,
+    it means the application is running in a sandboxed environment that restricts modals.
+    Please check how the application is being hosted or embedded.
+    If it's in an iframe, the iframe might need a `sandbox="allow-modals ..."` attribute.
+    The metadata.json file includes "allow-modals" for environments that respect it (like Figma plugins),
+    but other sandboxing mechanisms might need different configurations.
+  -->
+  <div id="root"></div>
+  <script
+    type="text/babel"
+    src="./index.tsx"
+    data-options='{
+      "presets": [
+        ["env", { "modules": false, "targets": { "esmodules": true } }],
+        "react",
+        "typescript"
+      ]
+    }'
+  ></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
